@@ -1,0 +1,128 @@
+.preloader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(100, 223, 223, 0.2), transparent 42%),
+    radial-gradient(circle at 80% 75%, rgba(86, 207, 225, 0.14), transparent 45%),
+    linear-gradient(160deg, #081221 0%, #0f2138 48%, #060d16 100%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.65s ease, visibility 0.65s ease;
+}
+
+.preloader-card {
+  width: min(90vw, 380px);
+  padding: 34px 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(237, 242, 247, 0.2);
+  background: rgba(7, 15, 26, 0.58);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+  text-align: center;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.65s ease;
+}
+
+.preloader-ring {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: conic-gradient(
+    from 130deg,
+    rgba(100, 223, 223, 0.16),
+    rgba(100, 223, 223, 0.95),
+    rgba(86, 207, 225, 0.25)
+  );
+  animation: spinRing 1.6s linear infinite;
+}
+
+.preloader-ring::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: #081626;
+}
+
+.preloader-logo {
+  position: relative;
+  z-index: 1;
+  width: 52px;
+  filter: drop-shadow(0 6px 15px rgba(100, 223, 223, 0.25));
+}
+
+.preloader-title {
+  margin: 22px 0 14px;
+  color: #edf2f7;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.preloader-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.preloader-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #64dfdf;
+  opacity: 0.3;
+  animation: pulseDot 1.2s ease-in-out infinite;
+}
+
+.preloader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.preloader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.preloader-overlay.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-overlay.is-leaving .preloader-card {
+  transform: translateY(-10px) scale(0.96);
+  filter: blur(4px);
+}
+
+@keyframes spinRing {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: scale(0.7);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-overlay,
+  .preloader-card {
+    transition: none !important;
+  }
+}
