@@ -105,7 +105,7 @@ body::after {
   overflow: hidden;
   margin-top: clamp(5.5rem, 9vw, 8rem) !important;
   padding-top: clamp(1.5rem, 2.5vw, 2.5rem) !important;
-  padding-bottom: clamp(2.2rem, 4vw, 3.2rem);
+  /* padding-bottom: clamp(2.2rem, 4vw, 3.2rem); */
 }
 
 .main-btn {
