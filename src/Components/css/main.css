@@ -19,6 +19,9 @@
   --surface-strong: rgba(10, 19, 33, 0.95);
   --border-color: rgba(237, 242, 247, 0.24);
   --dark-color: #0d1d31;
+  --font-body:
+    "Plus Jakarta Sans", "Nunito Sans", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
 }
 
 html {
@@ -26,7 +29,7 @@ html {
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  font-family: var(--font-body) !important;
   min-height: 100vh;
   background:
     radial-gradient(
@@ -45,7 +48,7 @@ body {
       transparent 32%
     ),
     linear-gradient(160deg, #060d17 0%, #091727 42%, #050b14 100%);
-  overflow: auto !important;
+
   color: var(--text-color);
   position: relative;
 }
@@ -457,9 +460,10 @@ nav img {
 
 .hero-description {
   font-size: 1.05rem;
-  line-height: 1.9;
+  line-height: 1.85;
   color: var(--muted-text);
-  font-weight: 500;
+  font-weight: 550;
+  letter-spacing: 0.01em;
   max-width: 620px;
 }
 
@@ -839,6 +843,8 @@ nav img {
   margin-inline: auto;
   color: var(--muted-text);
   font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.01em;
 }
 
 .experience {
@@ -920,8 +926,9 @@ nav img {
   margin-top: 12px;
   margin-bottom: 0;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.75;
   color: var(--muted-text);
+  letter-spacing: 0.01em;
 }
 
 @keyframes aboutReveal {
@@ -947,6 +954,8 @@ nav img {
   max-width: 640px;
   margin-inline: auto;
   font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
 }
 
 .skills-grid {
@@ -1057,11 +1066,16 @@ nav img {
 /* end skills*/
 
 /* start projects */
+.projects {
+  overflow: hidden;
+}
 .projects-subtitle {
   max-width: 680px;
   margin-inline: auto;
   color: var(--muted-text);
   font-size: 1rem;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
 }
 
 .project-tabs {
@@ -1196,11 +1210,11 @@ nav img {
 }
 
 .projects .project-info p {
-  font-family: "Segoe UI", "Trebuchet MS", "Lucida Sans", sans-serif;
+  font-family: var(--font-body);
   font-size: 1.03rem;
-  line-height: 1.9;
+  line-height: 1.8;
   letter-spacing: 0.01em;
-  font-weight: 500;
+  font-weight: 550;
   color: var(--muted-text);
 }
 
@@ -1222,37 +1236,42 @@ nav img {
 /* end projects */
 
 /* start contact */
-
-.contact-side {
-  height: 100%;
-  border: 1px solid rgba(237, 242, 247, 0.16);
-  border-radius: 20px;
-  padding: 24px 20px;
+.contact-panel {
+  width: 100%;
+  border: 1px solid rgba(237, 242, 247, 0.14);
+  border-radius: 22px;
   background:
+    linear-gradient(155deg, rgba(11, 23, 38, 0.9), rgba(7, 14, 24, 0.95)),
     radial-gradient(
-      circle at 15% 20%,
+      circle at top right,
       rgba(100, 223, 223, 0.12),
-      transparent 45%
-    ),
-    rgba(8, 19, 33, 0.62);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  contain: layout paint;
-  will-change: transform, opacity;
+      transparent 40%
+    );
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+  overflow: hidden;
 }
 
-.contact-side-title {
+.contact-info {
+  padding: 28px 22px;
+  border-right: 1px solid rgba(237, 242, 247, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.contact-info-title {
   margin: 0 0 10px;
-  font-size: 1.18rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text-color);
 }
 
-.contact-side-text {
+.contact-info-text {
   margin: 0;
+  line-height: 1.75;
   color: var(--muted-text);
-  line-height: 1.7;
   font-size: 0.95rem;
+  letter-spacing: 0.01em;
 }
 
 .contact-points {
@@ -1265,113 +1284,108 @@ nav img {
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(237, 242, 247, 0.15);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
   padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(237, 242, 247, 0.16);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-color);
   font-size: 0.9rem;
 }
 
 .contact-point svg {
   color: var(--primary-color);
-  font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .contact-form {
-  max-width: 100%;
-  margin: 0;
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 26px;
-  background:
-    radial-gradient(circle at 20% 10%, #64dfdf14, transparent 45%), #091320b8;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
-  contain: layout paint;
-  will-change: transform, opacity;
+  padding: 28px;
+  display: grid;
+  gap: 14px;
 }
 
-.contact .form-intro {
+.contact-form-intro {
+  margin: 0 0 2px;
   color: var(--muted-text);
+  line-height: 1.7;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+.contact-field {
+  display: grid;
+  gap: 7px;
+}
+
+.contact-field label {
+  font-size: 0.9rem;
+  color: #dce6f5;
   font-weight: 600;
-  font-size: 1.02rem;
 }
 
-.contact .form-floating > .contact-input {
-  height: 60px;
-  border-radius: 12px !important;
-  color: #f8fbff !important;
-  background: #ffffff0a !important;
-  border: 1px solid rgba(237, 242, 247, 0.2) !important;
-  padding: 1rem 0.95rem 0.25rem !important;
-  font-size: 0.97rem;
+.contact-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(237, 242, 247, 0.2);
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.04);
+  outline: 0;
   transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background-color 0.25s ease;
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.contact .form-floating > .contact-textarea {
-  height: 150px;
+.contact-input::placeholder {
+  color: #b2c0d4;
+}
+
+.contact-input:focus {
+  border-color: rgba(100, 223, 223, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 0 3px rgba(100, 223, 223, 0.12);
+}
+
+.contact-textarea {
+  min-height: 132px;
+  height: 132px;
+  padding: 12px;
   resize: vertical;
-  min-height: 150px;
-  padding-top: 1.625rem !important;
-  padding-bottom: 0.625rem !important;
-}
-.contact .form-floating > label {
-  color: rgba(237, 242, 247, 0.7);
-  background: transparent !important;
 }
 
-.contact .contact-input::placeholder {
-  color: transparent;
+.contact-input.is-invalid {
+  border-color: rgba(255, 107, 129, 0.85);
+  box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.14);
 }
 
-.contact .form-floating > .contact-input:focus,
-.contact .form-floating > .contact-input:not(:placeholder-shown) {
-  border-color: rgba(100, 223, 223, 0.78) !important;
-  box-shadow: 0 0 0 3px rgba(100, 223, 223, 0.15) !important;
-  background: #ffffff0f !important;
-}
-
-.contact .form-floating > .contact-input:focus ~ label,
-.contact .form-floating > .contact-input:not(:placeholder-shown) ~ label {
-  color: var(--primary-color);
-  background: transparent !important;
-}
-
-.contact .form-floating > .contact-textarea ~ label {
-  transform-origin: 0 0;
-}
-
-.contact .form-floating > .contact-input.is-invalid {
-  border-color: rgba(255, 107, 129, 0.8) !important;
-  box-shadow: 0 0 0 3px rgba(255, 107, 129, 0.13) !important;
-}
-
-.contact .invalid-feedback {
-  margin-top: 6px;
-  padding-left: 6px;
-  text-align: left;
-  font-size: 0.85rem;
-  color: #ff8fa3;
+.contact-error {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #ff95a6;
 }
 
 .contact-submit-btn {
-  height: 52px;
-  border-radius: 12px;
-  color: #08293d;
-  font-weight: 800;
+  margin-top: 4px;
+  height: 48px;
+  border-radius: 10px;
   border: 1px solid transparent;
-  transition: all 0.25s ease;
+  font-weight: 800;
+  color: #08293d;
   background: linear-gradient(135deg, #64dfdf, #56cfe1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
 }
 
 .contact-submit-btn:hover {
   transform: translateY(-1px);
-  letter-spacing: 0.5px;
-  box-shadow: 0 14px 28px rgba(86, 207, 225, 0.28);
+  box-shadow: 0 10px 22px rgba(86, 207, 225, 0.3);
+}
+
+.contact-submit-btn:active {
+  transform: translateY(0);
 }
 
 .contact-submit-btn:disabled {

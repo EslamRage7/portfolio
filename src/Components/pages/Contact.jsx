@@ -105,127 +105,103 @@ function Contact() {
   };
 
   return (
-    <div
-      className="contact pt-5 mt-5"
-      id="contact"
-      data-aos="fade-up"
-      data-aos-duration="700"
-      data-aos-once="true"
-      data-aos-mirror="false">
+    <section className="contact pt-5 mt-5" id="contact">
       <div className="container">
-        <div className="row mb-5 justify-content-center">
-          <h1 className="main-btn mb-5">
-            Contact Me
-          </h1>
+        <div className="row mb-5 justify-content-center g-4">
+          <h1 className="main-btn mb-5">Contact Me</h1>
 
           <div className="col-12">
-            <div className="contact-shell row g-3 g-lg-4 align-items-stretch">
-              <div className="col-lg-4">
-                <aside className="contact-side">
-                  <p className="contact-side-title">
-                    Let's Build Something Great
-                  </p>
-                  <p className="contact-side-text">
-                    Share your idea and I will help you turn it into a clean and
-                    high-performance product.
-                  </p>
+            <div className="contact-panel">
+              <aside className="contact-info">
+                <h2 className="contact-info-title">Start a project with me</h2>
+                <p className="contact-info-text">
+                  Tell me what you want to build, and I will get back to you
+                  with a clear plan and timeline.
+                </p>
 
-                  <div className="contact-points">
-                    <div className="contact-point">
-                      <FiMail />
-                      <span>Fast email response</span>
-                    </div>
-                    <div className="contact-point">
-                      <FiClock />
-                      <span>Available for new projects</span>
-                    </div>
-                    <div className="contact-point">
-                      <FiMapPin />
-                      <span>Remote collaboration friendly</span>
-                    </div>
+                <div className="contact-points">
+                  <div className="contact-point">
+                    <FiMail />
+                    <span>Reply in less than 24 hours</span>
                   </div>
-                </aside>
-              </div>
-
-              <div className="col-lg-8">
-                <form className="contact-form h-100" onSubmit={handleSubmit}>
-                  <div className="contact-form-container">
-                    <p className="form-intro text-center mb-4">
-                      Have a project in mind or just want to say hi? I'd love to
-                      hear from you!
-                    </p>
-
-                    <div className="form-floating mb-3">
-                      <input
-                        type="text"
-                        className={`form-control contact-input ${
-                          errors.user_name ? "is-invalid" : ""
-                        }`}
-                        name="user_name"
-                        id="user_name"
-                        placeholder="Your Name"
-                        value={formData.user_name}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="user_name">Your Name</label>
-                      {errors.user_name && (
-                        <div className="invalid-feedback d-block">
-                          {errors.user_name}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="form-floating mb-3">
-                      <input
-                        type="email"
-                        className={`form-control contact-input ${
-                          errors.user_email ? "is-invalid" : ""
-                        }`}
-                        name="user_email"
-                        id="user_email"
-                        placeholder="name@example.com"
-                        value={formData.user_email}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="user_email">Email Address</label>
-                      {errors.user_email && (
-                        <div className="invalid-feedback d-block">
-                          {errors.user_email}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="form-floating mb-3">
-                      <textarea
-                        className={`form-control contact-input contact-textarea ${
-                          errors.message ? "is-invalid" : ""
-                        }`}
-                        name="message"
-                        id="message"
-                        placeholder="Your Message"
-                        value={formData.message}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="message">Your Message</label>
-                      {errors.message && (
-                        <div className="invalid-feedback d-block">
-                          {errors.message}
-                        </div>
-                      )}
-                    </div>
-
-                    <button className="contact-submit-btn w-100" type="submit">
-                      <IoIosSend className="me-2" />
-                      Send Message
-                    </button>
+                  <div className="contact-point">
+                    <FiClock />
+                    <span>Open for freelance work</span>
                   </div>
-                </form>
-              </div>
+                  <div className="contact-point">
+                    <FiMapPin />
+                    <span>Remote and worldwide</span>
+                  </div>
+                </div>
+              </aside>
+
+              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                <p className="contact-form-intro">
+                  Have an app, website, or idea? Send your details and let's
+                  build it right.
+                </p>
+
+                <div className="contact-field">
+                  <label htmlFor="user_name">Full Name</label>
+                  <input
+                    type="text"
+                    className={`contact-input ${errors.user_name ? "is-invalid" : ""}`}
+                    name="user_name"
+                    id="user_name"
+                    placeholder="Enter your full name"
+                    value={formData.user_name}
+                    onChange={handleChange}
+                  />
+                  {errors.user_name && (
+                    <p className="contact-error">{errors.user_name}</p>
+                  )}
+                </div>
+
+                <div className="contact-field">
+                  <label htmlFor="user_email">Email Address</label>
+                  <input
+                    type="email"
+                    className={`contact-input ${
+                      errors.user_email ? "is-invalid" : ""
+                    }`}
+                    name="user_email"
+                    id="user_email"
+                    placeholder="name@example.com"
+                    value={formData.user_email}
+                    onChange={handleChange}
+                  />
+                  {errors.user_email && (
+                    <p className="contact-error">{errors.user_email}</p>
+                  )}
+                </div>
+
+                <div className="contact-field">
+                  <label htmlFor="message">Project Details</label>
+                  <textarea
+                    className={`contact-input contact-textarea ${
+                      errors.message ? "is-invalid" : ""
+                    }`}
+                    name="message"
+                    id="message"
+                    placeholder="Write your message here..."
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                  {errors.message && (
+                    <p className="contact-error">{errors.message}</p>
+                  )}
+                </div>
+
+                <button className="contact-submit-btn" type="submit">
+                  <IoIosSend className="me-2" />
+                  Send Message
+                </button>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

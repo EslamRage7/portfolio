@@ -126,11 +126,7 @@
   }
 
   .contact-form {
-    padding: 16px;
-  }
-
-  .contact-side {
-    padding: 18px 16px;
+    padding: 18px 14px;
   }
 
   .tech-icon {
@@ -220,7 +216,7 @@
     padding: 14px;
   }
 
-  .contact-side-title {
+  .contact-info-title {
     font-size: 1.05rem;
   }
 
@@ -231,6 +227,17 @@
   .download-btn,
   .secondary-btn {
     width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .contact-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    border-right: 0;
+    border-bottom: 1px solid rgba(237, 242, 247, 0.14);
   }
 }
 

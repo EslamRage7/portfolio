@@ -46,10 +46,7 @@ function Projects() {
   ];
   return (
     <>
-      <div
-        className="projects pt-5 mt-5"
-        id="projects"
-        data-aos="fade-up">
+      <div className="projects pt-5 mt-5" id="projects" data-aos="fade-up">
         <div className="container text-center">
           <div className="row mb-5">
             <h1 className="main-btn mb-5" data-aos="zoom-in-up">
@@ -65,7 +62,7 @@ function Projects() {
               {projects.map((project, index) => (
                 <li className="nav-item" role="presentation" key={project.num}>
                   <button
-                    className={`nav-link ${index === 0 ? "active" : ""}`}
+                    className={`nav-link fw-bold ${index === 0 ? "active" : ""}`}
                     data-bs-toggle="pill"
                     data-bs-target={`#pills-${project.id}`}
                     type="button">
@@ -92,9 +89,8 @@ function Projects() {
                         <div
                           className="project-info p-lg-5 text-start position-relative"
                           data-aos="fade-right"
-                          data-aos-delay="140"
-                        >
-                          <span className="project-kicker">
+                          data-aos-delay="140">
+                          <span className="project-kicker mt-5">
                             Featured Project {project.num}
                           </span>
                           <h1 className="mt-3">{project.title}</h1>
@@ -110,7 +106,10 @@ function Projects() {
                       </div>
 
                       <div className="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center align-items-center">
-                        <div className="video" data-aos="fade-left" data-aos-delay="180">
+                        <div
+                          className="video"
+                          data-aos="fade-left"
+                          data-aos-delay="180">
                           <video
                             className="video-inside-phone"
                             src={project.video}
